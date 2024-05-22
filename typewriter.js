@@ -11,7 +11,7 @@ $(document).ready(function (){
         $('#example').append(textToType.charAt(i));
         i++;
         if (i < textToType.length){
-            setTimeout(typeWriter, 100);
+            setTimeout(typeWriter, 100); // change numeric value to alter speed //
         }
     }
 
