@@ -1,0 +1,39 @@
+import express from "express";
+
+const app = express();
+const port = 3000;
+
+app.get("/", (req, res) => {
+    const today = new Date();
+    const day = today.getDay();
+    // console.log(day);
+    let type = "a weekday";
+    let adv = "Time to WORK hard!"
+
+    if (day === 0 || day === 6){
+        type = "the weekend";
+        adv = "Time to PLAY hard!"
+    }
+
+    res.render("index.ejs", {
+        dayType: type, 
+        advice: adv,
+    });
+});
+
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+  });
+
+// EJS //
+
+// <!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <title>Weekend Warrior</title>
+// </head>
+// <body>
+//     <h1>Hello, today is <%=dayType %>, <%=advice %>!</h1>
+// </body>
+// </html>
